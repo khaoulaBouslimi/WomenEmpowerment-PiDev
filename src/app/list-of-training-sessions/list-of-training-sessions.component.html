@@ -1,0 +1,30 @@
+
+<h2 class="text-center">List of training Sessions</h2>
+<table class="table table-striped" >
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Duration</th>
+            <th scope="col">Location</th>
+            <th scope="col">Description</th>
+            <th scope="col">Starting Date</th>
+            <th scope="col">Ending</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let t of listOfTrainingSessions ">
+          
+          <td>{{ t.idTS }}</td>
+          <td>{{ t.title }}</td>
+          <td>{{ t.dure }}</td>
+          <td>{{ t.localisation }}</td>
+          <td>{{ t.DescriptionOfTS }}</td>
+          <td>{{ t.dateDebut }}</td>
+          <td>{{ t.dateFin }}</td>
+        </tr>
+    </tbody>
+   
+
+</table>  
