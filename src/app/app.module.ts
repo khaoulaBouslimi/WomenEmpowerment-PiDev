@@ -9,6 +9,7 @@ import { TemplateComponent } from './template/template.component';
 import { TrainingSessionListComponent } from './My-components/training-session-list/training-session-list.component';
 import { ListOfTrainingSessionsComponent } from './list-of-training-sessions/list-of-training-sessions.component';
 import { CreateTrainingsessionComponent } from './create-trainingsession/create-trainingsession.component';
+import { UpdateTrainingsessionComponent } from './update-trainingsession/update-trainingsession.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CreateTrainingsessionComponent } from './create-trainingsession/create-
     TemplateComponent,
     TrainingSessionListComponent,
     ListOfTrainingSessionsComponent,
-    CreateTrainingsessionComponent
+    CreateTrainingsessionComponent,
+    UpdateTrainingsessionComponent
   ],
   imports: [
     BrowserModule,
