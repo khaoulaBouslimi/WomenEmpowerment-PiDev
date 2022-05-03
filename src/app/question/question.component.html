@@ -11,40 +11,58 @@
                 <span style="font-family: italic;">Welcome {{name}}</span>
             </div>
         </div>
-        <div class="d-flex justify-content-around p-3">
-            <div class="score">
-                <h5>{{points}} Points</h5>
+        <ng-container *ngIf="!isQuizCompleted">
+            <div class="d-flex justify-content-around p-3">
+                <div class="score">
+                    <h5>{{points}} Points</h5>
+                </div>
+                <div class="question-remain">
+                    <span style="font-style: italic;">Question {{currentQuestion+1}} of {{questionList.length}} </span>
+                </div>
+                <div class="timer">
+                    <h5>{{counter}} sec 🧜🏻⏱️</h5> 
+                </div>
             </div>
-            <div class="question-remain">
-                <span style="font-style: italic;">Question 1 of 9</span>
+            <div class="progress mb-3">
+                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [ngStyle]="{'width':progress+'%'}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
-            <div class="timer">
-                <h5>{{counter}} sec 🧜🏻⏱️</h5> 
+            <div class="question" >
+                <div class="card">
+                    <h3>{{questionList[currentQuestion]?.questiontext}}</h3>
+                </div>
             </div>
-        </div>
-        <div class="progress mb-3">
-            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-        <div class="question" >
-            <div class="card">
-                <h3>{{questionList[currentQuestion]?.questiontext}}</h3>
+            <div class="options">
+                <ol *ngFor="let option of questionList[currentQuestion]?.options">
+                    <li (click)="answer(currentQuestion+1,option)">
+                        <!--the option.correct is from json-->
+                        <div appChangeBg [isCorrect]="option.correct" class="card">
+                            {{option.text}}
+                        </div>
+                    </li>
+    
+                   
+                </ol>
             </div>
-        </div>
-        <div class="options">
-            <ol *ngFor="let option of questionList[currentQuestion]?.options">
-                <li>
-                    <div class="card">
-                        {{option.text}}
-                    </div>
-                </li>
+            <div class="d-flex justify-content-between">
+                <button [disabled]="currentQuestion === 0" class="btn" (click)="previousQuestion()"> <i class="fa text-primary fa-chevron-left fa-3x" aria-hidden="true"></i> </button>
+                <button class="btn" (click)="resetQuiz()"> <i class="fa text-primary fa-refresh fa-3x" aria-hidden="true"></i>            </button>
+                <button class="btn" (click)="nextQuestion()"> <i class="fa text-primary fa-chevron-right fa-3x"  aria-hidden="true"></i> </button>
+            </div>
+        </ng-container>
 
-               
-            </ol>
-        </div>
-        <div class="d-flex justify-content-between">
-            <button class="btn" (click)="previousQuestion()"> <i class="fa text-primary fa-chevron-left fa-3x" aria-hidden="true"></i> </button>
-            <button class="btn"> <i class="fa text-primary fa-refresh fa-3x" aria-hidden="true"></i>            </button>
-            <button class="btn" (click)="nextQuestion()"> <i class="fa text-primary fa-chevron-right fa-3x"  aria-hidden="true"></i> </button>
-        </div>
+
+        <ng-container *ngIf="isQuizCompleted">
+            <div class="row d-flex justify-content-between">
+                <img style="width: 50%;" class="img-fluid col-sm-12 mx-auto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeS1dozJgmwxPy3Z2AbnY9-ZsV0gt-EkLs3njBnZ6uGg4qEvOD5lOOWUNFGYSv9CkWrwY&usqp=CAU" alt="">
+                <div class="result text-center col-md-6 col-sm-12">
+                     <h3> Congratulations!! <br> You have completed the quiz. <br> Below is your result : </h3>
+                     <p> Total Question Attempted : {{questionList.length}} </p>
+                     <p> Total Correct Answered : {{correctAnswer}} </p>
+                     <p> Total wrong Answered : {{inCorrectAnswer}} </p>
+                     <p> Your Score : {{points}} Points </p>
+                </div>
+                
+            </div>
+        </ng-container>
     </div>
 </div>

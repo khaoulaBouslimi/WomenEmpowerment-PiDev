@@ -15,6 +15,7 @@ import { HeaderComponent } from './header/header.component';
 import { RainingSectionComponent } from './raining-section/raining-section.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { QuestionComponent } from './question/question.component';
+import { ChangeBgDirective } from './change-bg.directive';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { QuestionComponent } from './question/question.component';
     HeaderComponent,
     RainingSectionComponent,
     WelcomeComponent,
-    QuestionComponent
+    QuestionComponent,
+    ChangeBgDirective
   ],
   imports: [
     BrowserModule,
