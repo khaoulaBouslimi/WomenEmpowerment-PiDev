@@ -10,6 +10,11 @@ import { TrainingSessionListComponent } from './My-components/training-session-l
 import { ListOfTrainingSessionsComponent } from './list-of-training-sessions/list-of-training-sessions.component';
 import { CreateTrainingsessionComponent } from './create-trainingsession/create-trainingsession.component';
 import { UpdateTrainingsessionComponent } from './update-trainingsession/update-trainingsession.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { RainingSectionComponent } from './raining-section/raining-section.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { QuestionComponent } from './question/question.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +23,12 @@ import { UpdateTrainingsessionComponent } from './update-trainingsession/update-
     TrainingSessionListComponent,
     ListOfTrainingSessionsComponent,
     CreateTrainingsessionComponent,
-    UpdateTrainingsessionComponent
+    UpdateTrainingsessionComponent,
+    FooterComponent,
+    HeaderComponent,
+    RainingSectionComponent,
+    WelcomeComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,
