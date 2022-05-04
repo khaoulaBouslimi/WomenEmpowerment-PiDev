@@ -2,8 +2,9 @@
     <div class="card">
         <div class="d-flex justify-content-between p-3">
             <div class="image">
-                <img src="https://img.icons8.com/color/96/000000/angularjs.png" alt="logo" width="90" >
-
+                <img src="assets/images/lion.png" alt="logo" width="200" >
+                <span class="text-uppercase" style="color: rgb(0, 0, 0);"> Women Empowerment </span>
+                
             </div>
 
             <div class="quiz-header">
@@ -11,16 +12,17 @@
                 <span style="font-family: italic;">Welcome {{name}}</span>
             </div>
         </div>
+
         <ng-container *ngIf="!isQuizCompleted">
             <div class="d-flex justify-content-around p-3">
                 <div class="score">
-                    <h5>{{points}} Points</h5>
+                    <h5 style="color: chartreuse;">{{points}} Points</h5>
                 </div>
                 <div class="question-remain">
-                    <span style="font-style: italic;">Question {{currentQuestion+1}} of {{questionList.length}} </span>
+                    <span style="font-style: italic;"><i class="bi bi-patch-question-fill"></i> Question {{currentQuestion+1}} of {{questionList.length}} </span>
                 </div>
                 <div class="timer">
-                    <h5>{{counter}} sec 🧜🏻⏱️</h5> 
+                    <h5 style="color: chartreuse;">{{counter}} sec ⏱️</h5> 
                 </div>
             </div>
             <div class="progress mb-3">
@@ -28,14 +30,14 @@
             </div>
             <div class="question" >
                 <div class="card">
-                    <h3>{{questionList[currentQuestion]?.questiontext}}</h3>
+                    <h3 style="color: darkblue;">{{questionList[currentQuestion]?.questiontext}}</h3>
                 </div>
             </div>
             <div class="options">
                 <ol *ngFor="let option of questionList[currentQuestion]?.options">
                     <li (click)="answer(currentQuestion+1,option)">
                         <!--the option.correct is from json-->
-                        <div appChangeBg [isCorrect]="option.correct" class="card">
+                        <div appChangeBg [isCorrect]="option.correct" class="card" style="color: darkblue;">
                             {{option.text}}
                         </div>
                     </li>
@@ -44,19 +46,19 @@
                 </ol>
             </div>
             <div class="d-flex justify-content-between">
-                <button [disabled]="currentQuestion === 0" class="btn" (click)="previousQuestion()"> <i class="fa text-primary fa-chevron-left fa-3x" aria-hidden="true"></i> </button>
+                <button [disabled]="currentQuestion === 0 "  class="btn" (click)="previousQuestion()"> <i class="fa text-primary fa-chevron-left fa-3x" aria-hidden="true"></i> </button>
                 <button class="btn" (click)="resetQuiz()"> <i class="fa text-primary fa-refresh fa-3x" aria-hidden="true"></i>            </button>
                 <button class="btn" (click)="nextQuestion()"> <i class="fa text-primary fa-chevron-right fa-3x"  aria-hidden="true"></i> </button>
             </div>
         </ng-container>
 
-
+        
         <ng-container *ngIf="isQuizCompleted">
             <div class="row d-flex justify-content-between">
                 <img style="width: 50%;" class="img-fluid col-sm-12 mx-auto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeS1dozJgmwxPy3Z2AbnY9-ZsV0gt-EkLs3njBnZ6uGg4qEvOD5lOOWUNFGYSv9CkWrwY&usqp=CAU" alt="">
                 <div class="result text-center col-md-6 col-sm-12">
-                     <h3> Congratulations!! <br> You have completed the quiz. <br> Below is your result : </h3>
-                     <p> Total Question Attempted : {{questionList.length}} </p>
+                     <h3 > Congratulations {{name}}!! <br> You have completed the quiz. <br> Below is your result : </h3>
+                     <p > Total Question Attempted : {{questionList.length}} </p>
                      <p> Total Correct Answered : {{correctAnswer}} </p>
                      <p> Total wrong Answered : {{inCorrectAnswer}} </p>
                      <p> Your Score : {{points}} Points </p>
