@@ -1,0 +1,34 @@
+
+<div class="form">
+
+<form [formGroup]="myForm" (ngSubmit)="addEvent()">
+
+<h1>Add Event</h1>
+
+  <div class="form-group">
+    <label for="exampleInputtopic1">Event Topic</label>
+    <input type="text" class="form-control" id="exampleInputtopic1" [(ngModel)]="event.eventTopic" aria-describedby="topicHelp" formControlName="eventTopic" [ngClass]="{ 'is-invalid': submitted && myForm.controls.eventTopic.errors }">
+    <div *ngIf="myForm.controls['eventTopic'].hasError('required')" class="invalid-feedback">
+        <div>eventTopic is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputdate1">Date event</label>
+    <input type="datetime-local" class="form-control" id="exampleInputdate1" [(ngModel)]="event.date" aria-describedby="dateHelp"  formControlName="date" [ngClass]="{ 'is-invalid': submitted && myForm.controls.date.errors }">
+    <div *ngIf="myForm.controls['date'].hasError('required')" class="invalid-feedback">
+        <div>Date is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Description</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="event.description" rows="3" formControlName="description" [ngClass]="{ 'is-invalid': submitted && myForm.controls.description.errors }"></textarea>
+    <div *ngIf="myForm.controls['description'].hasError('required')" class="invalid-feedback">
+        <div>Description is required</div>
+    </div>
+  </div>
+  <div class="d-flex flex-nowrap">
+  <button type="submit" class="btn btn-primary mx-2">save</button>
+  <a routerLink="/event/all" type="button" class="btn btn-secondary " >display</a> 
+    </div>
+</form>
+</div>

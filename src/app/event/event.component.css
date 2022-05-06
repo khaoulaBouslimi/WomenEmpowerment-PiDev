@@ -1,0 +1,25 @@
+
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(64, 57, 57);
+    margin:70px 300px;
+    width: 50%;
+    color: rgb(168, 168, 168);
+}
+
+.form form{
+    width: 80%;
+    padding: 100px; 
+}
+
+.form form .btn{
+    background-color: black;
+    width: 100%;
+    margin-top:20px;
+    border: none;
+}
+.form form .btn:hover{
+    background-color: rgb(29, 28, 28);
+}
